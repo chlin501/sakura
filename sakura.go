@@ -12,6 +12,10 @@ import (
 // Hasher provides a source of hash.Hash implementations.
 type Hasher func() hash.Hash
 
+// Filter returns a reader and writer pair that are capable of manipulating
+// data before it is hashed.
+type Filter func() (io.Reader, io.Writer)
+
 // BlockSize represents a block size as a mantissa and exponent in the formula:
 //
 //   Pow(2, Exponent) * (2 * Mantissa + 1)
